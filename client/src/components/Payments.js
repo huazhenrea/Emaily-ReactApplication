@@ -5,8 +5,6 @@ import * as actions from '../actions';
 
 class Payments extends Component {
 	render() {
-		
-
 		return (
 			<StripeCheckout
 				name="Emaily"
