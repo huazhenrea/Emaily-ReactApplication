@@ -9,10 +9,16 @@ module.exports = (app) => {
 	);
 	//receive the exchange
 	app.get("/auth/google/callback", 
-		passport.authenticate("google"));
+		passport.authenticate("google"),
+		(req, res) => {
+			res.redirect('/surveys');
+		}
+
+
+	);
 	app.get('/api/logout', (req, res) => {
 		req.logout();
-		res.send(req.user);
+		res.redirect('/');
 	});
 
 	app.get('/api/current_user', (req, res) => {
